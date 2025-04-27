@@ -1,1 +1,25 @@
 function-calling/
+# Binaries for programs and plugins
+*.exe
+*.dll
+*.so
+*.dylib
+
+# Test binary, build output
+*.test
+*.out
+
+# Output of the go coverage tool
+*.cover
+
+# Dependency directories
+vendor/
+
+# Go modules
+go.sum
+go.mod
+
+# IDE and editor specific files
+.idea/
+.vscode/
+*.iml
