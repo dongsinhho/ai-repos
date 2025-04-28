@@ -15,10 +15,6 @@ function-calling/
 # Dependency directories
 vendor/
 
-# Go modules
-go.sum
-go.mod
-
 # IDE and editor specific files
 .idea/
 .vscode/
