@@ -1,8 +1,6 @@
 package main
 
 import (
-	"context"
-	"errors"
 	"flag"
 	"fmt"
 
@@ -10,6 +8,8 @@ import (
 	"github.com/mark3labs/mcp-go/server"
 
 	"github.com/joho/godotenv"
+
+	"github.com/dongsinhho/ai-repos/mcp-server/tools"
 )
 
 func main() {
@@ -43,18 +43,14 @@ func main() {
 	)
 	// tools.RegisterMailTools(mcpServer)
 	// tools.RegisterAwsInsight(mcpServer)
-	mcpServer.AddTool(tool, helloHandler)
+	mcpServer.AddTool(tool, tools.HelloHandler)
 
-	if err := server.ServeStdio(mcpServer); err != nil {
-		panic(fmt.Sprintf("Server error: %v", err))
+	// if err := server.ServeStdio(mcpServer); err != nil {
+	// 	panic(fmt.Sprintf("Server error: %v", err))
+	// }
+	sse := server.NewSSEServer(mcpServer, server.WithBasePath("http://localhost:5000"))
+	err := sse.Start(":5000")
+	if err != nil {
+		fmt.Printf("Server error: %v\n", err)
 	}
-}
-
-func helloHandler(ctx context.Context, request mcp.CallToolRequest) (*mcp.CallToolResult, error) {
-	name, ok := request.Params.Arguments["name"].(string)
-	if !ok {
-		return nil, errors.New("name must be a string")
-	}
-
-	return mcp.NewToolResultText(fmt.Sprintf("Hello, %s!", name)), nil
 }
