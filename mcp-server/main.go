@@ -4,10 +4,9 @@ import (
 	"flag"
 	"fmt"
 
+	"github.com/joho/godotenv"
 	"github.com/mark3labs/mcp-go/mcp"
 	"github.com/mark3labs/mcp-go/server"
-
-	"github.com/joho/godotenv"
 
 	"github.com/dongsinhho/ai-repos/mcp-server/tools"
 )
