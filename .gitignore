@@ -21,3 +21,5 @@ vendor/
 *.iml
 
 *.http
+
+*.json
