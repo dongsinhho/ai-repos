@@ -9,3 +9,9 @@ https://github.com/sparfenyuk/mcp-proxy
 https://github.com/modelcontextprotocol/inspector
 
 A2A agent to agent https://www.youtube.com/watch?v=1I0Yt0yZf-I
+
+
+### Command
+go build -o server.exe
+
+npx @modelcontextprotocol/inspector node build/index.js
